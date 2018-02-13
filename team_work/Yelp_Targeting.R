@@ -25,15 +25,14 @@ df$ID = NULL
 data = df
 
 # Standardize the data (decompose to T-Score)
-df = easyStandardize(df, c(1,2,3,4,5,6))
+df = easyStandardize(df, c(1,2,3,4,5,6,7))
 
 # Look for the "bend" of diminishing returns WRT group numbers
 elbowChart(df)
 
 # Build the model
 model = kmeans(df, 4)
-summary(model)
-
+model
 # inspect the centers of this model
 model$centers
 
