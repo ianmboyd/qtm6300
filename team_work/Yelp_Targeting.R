@@ -15,14 +15,18 @@ df = na.omit(df)
 # calculate average Reviews Per Month (How active a person is)
 df$Activeness = df$Reviews / df$`Months Active`
 
-# calculate the Votes Per Month (Influence)
-df$Influence = df$Votes / df$`Months Active`
+# calculate the Influence as a function of friends and review votes, over time
+df$Influence = (df$Votes + df$Friends) / df$`Months Active`
 
 # Remove the ID (UUID of User) - not relevant
 df$ID = NULL
 
 # Preserve a non-standardized copy of the data
 data = df
+
+#  Establish the base statistics of the data set
+stats = dfStats(data)
+print(stats)
 
 # Standardize the data (decompose to T-Score)
 df = easyStandardize(df, c(1,2,3,4,5,6,7))
@@ -69,4 +73,6 @@ colMeans(data)
 #
 # Months Active        Reviews Average Review          Votes        Friends            RPM 
 # 40.5815418     33.7587241      3.7430907    152.1117888      4.2656734      0.6453183 
+# 
+# 
 # 
