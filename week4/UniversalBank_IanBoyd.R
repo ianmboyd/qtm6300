@@ -21,7 +21,23 @@ library(ggplot2)
 #
 # Load the data
 # 
-df = read_csv('c:/Users/iboyd/Documents/GRAD/S-2018/qtm6300/week4/UniversalBank.csv')
+#
+# (1).a Import the data
+#
+
+remoteData = TRUE; # Force 
+
+if( remoteData ){
+  #Attempt to load the data from GITHUB repository
+  library(RCurl)
+  urlData <- getURL("https://raw.githubusercontent.com/ianmboyd/qtm6300/master/week4/UniversalBank.csv")
+  df= read.csv(text=urlData, check.names=FALSE) # Odd nunace of this util - it replaces spaces in column names with '.'
+}else{
+  #Load the data from local storage
+  df = read_csv('c:/Users/iboyd/Documents/GRAD/S-2018/qtm6300/week4/UniversalBank.csv')
+}
+
+
 
 str(df)
 #
