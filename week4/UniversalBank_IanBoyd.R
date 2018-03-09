@@ -120,7 +120,7 @@ table(predictions, observations)
 #           0 1765   81
 #           1   34  120
 
-CrossTable(predictions, observations, expected = F, prop.r = F, prop.c = F, prop.t = F, prop.chisq = F)
+CT CrossTable(predictions, observations, expected = F, prop.r = F, prop.c = F, prop.t = F, prop.chisq = F)
 #                 | observations 
 # predictions     |         0 |         1 | Row Total | 
 #    -------------|-----------|-----------|-----------|
